@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+    <section class="hero is-dark">
+      <div class="hero-body">
+        <h1 class="title is-1">
+          Job Finder
+        </h1>
+      </div>
+    </section>
+    <section class="hero is-light">
+      <div class="container">
+        <h2 class="title is-2">Search for job</h2>
+        <form class="box" action="/jobs" method="get">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="keyword" placeholder="Job title">
+            </div>
+          </div>
+        
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="location" placeholder="Location">
+            </div>
+          </div>
+        
+          <button class="button is-primary">Search</button>
+        </form>
+        <!-- <div class="container" id="jobListings">
+          {% for job in job_listings %}
+            <div class="job">
+                <h3>{{ job['Job Title'] }}</h3>
+                <p>Company: {{ job['Company'] }}</p>
+                <p>Location: {{ job['Location'] }}</p>
+                <p>Skills: {{ job['Skills'] }}</p>
+                <p>Experience: {{ job['Experience'] }}</p>
+                <p>Publish Date: {{ job['Publish Date'] }}</p>
+            </div>
+          {% endfor %}
+        </div> -->
+        {% if(job_listings): %}
+          {% for job in job_listings %}
+          <div id="job" class="card">
+            <header class="card-header">
+              <h3 class="card-header-title">{{ job['Job Title'] }}</h3>
+              <!-- <button class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button> -->
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <p>Company: {{ job['Company'] }}</p>
+                <p>Location: {{ job['Location'] }}</p>
+                <p>Skills: {{ job['Skills'] }}</p>
+                <p>Experience: {{ job['Experience'] }}</p>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">Publish Date: {{ job['Publish Date'] }}</p>
+            </footer>
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </section>
+  </body>
+</html>
