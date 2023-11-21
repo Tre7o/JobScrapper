@@ -1,12 +1,12 @@
-# Getting started
+# Getting Started
 
-This application is a web scrapper built using python and flask, to return a job listing
+This application is a web scrapper built using python and flask, to return job listings for various job searches
 
 Ensure that the FLASK_APP environment variable is set correctly. This variable should contain the name of the Python file where your Flask application is defined.
 
 In your case, assuming your Flask application is in a file named jobscrapper.py, set the FLASK_APP environment variable:
 set FLASK_APP=app.py  # For Command Prompt
-### OR
+#### OR
 $env:FLASK_APP = "app.py"  For PowerShell
 
 ## Running the Application
@@ -21,7 +21,7 @@ Install the necessary packages using:
 - pip install -r requirements.txt
 
 To run jobscrapper.py:
-flask --app jobscrapper run
+- flask --app jobscrapper run
 
 To set flask in debug mode:
-set FLASK_DEBUG=1 && flask run
+- set FLASK_DEBUG=1 && flask run
