@@ -1,3 +1,10 @@
+#body-box{
+    padding-left: 100px;
+    padding-right: 100px;
+}
 .card{
     margin-bottom: 50px;
+}
+.card-footer-item{
+    
 }

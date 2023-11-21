@@ -8,3 +8,6 @@ $env:FLASK_APP = "app.py"  # For PowerShell
 
 To run jobscrapper.py:
 flask --app jobscrapper run
+
+To set flask in debug mode:
+set FLASK_DEBUG=1 && flask run

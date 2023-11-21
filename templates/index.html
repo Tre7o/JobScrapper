@@ -16,7 +16,7 @@
       </div>
     </section>
     <section class="hero is-light">
-      <div class="container">
+      <div class="box" id="body-box">
         <h2 class="title is-2">Search for job</h2>
         <form class="box" action="/jobs" method="get">
           <div class="field">
@@ -45,31 +45,31 @@
             </div>
           {% endfor %}
         </div> -->
-        {% if(job_listings): %}
-          {% for job in job_listings %}
-          <div id="job" class="card">
-            <header class="card-header">
-              <h3 class="card-header-title">{{ job['Job Title'] }}</h3>
-              <!-- <button class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button> -->
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>Company: {{ job['Company'] }}</p>
-                <p>Location: {{ job['Location'] }}</p>
-                <p>Skills: {{ job['Skills'] }}</p>
-                <p>Experience: {{ job['Experience'] }}</p>
+          {% if(job_listings): %}  
+            {% for job in job_listings %}   
+            <div id="job" class="card">           
+              <header class="card-header">
+                <h3 class="card-header-title">{{ job['Job Title'] }}</h3>
+                <!-- <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button> -->
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <p>Company: {{ job['Company'] }}</p>
+                  <p>Location: {{ job['Location'] }}</p>
+                  <p>Skills: {{ job['Skills'] }}</p>
+                  <p>Experience: {{ job['Experience'] }}</p>
+                </div>
               </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">Publish Date: {{ job['Publish Date'] }}</p>
+              </footer>              
             </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">Publish Date: {{ job['Publish Date'] }}</p>
-            </footer>
-          </div>
-          {% endfor %}
-        {% endif %}
+            {% endfor %}
+          {% endif %}       
       </div>
     </section>
   </body>

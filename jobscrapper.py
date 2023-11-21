@@ -12,11 +12,8 @@ def scrape_job_listings(keyword, location):
         'txtKeywords': keyword,
         'txtLocation': location,
     }
-    # print(keyword)
-    # print(location)
 
     response = requests.get(base_url, params=params)
-    print(response)
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -30,14 +27,6 @@ def scrape_job_listings(keyword, location):
             skills = job.find('span', class_='srp-skills').text.strip().replace(' ', '')
             job_experience = job.find('ul', class_='top-jd-dtl clearfix').find_all('li')[0].text.split('card_travel')[1]
             publish_date = job.find('span', class_='sim-posted').span.text
-
-            print(job_location)
-
-            # print(f"Job Title: {job_title}")
-            # print(f"Company: {company_name}")
-            # print(f"Location: {job_location}")
-            # print(f"Experience: {job_experience}")
-            # print("=" * 50)
 
             job_info = {
                 "Job Title": job_title,
@@ -60,19 +49,15 @@ def get_jobs():
     location = request.args.get('location')
     print(keyword)
     print(location)
-    
-    job_listings = scrape_job_listings(keyword, location)
-    if job_listings:
-        return render_template('index.html', job_listings=job_listings)
+    if(keyword is None and location is None):
+        return render_template('index.html')
     else:
-        return render_template('index.html', job_listings=None)
+        job_listings = scrape_job_listings(keyword, location)
+        if job_listings:
+            return render_template('index.html', job_listings=job_listings)
+        else:
+            return render_template('index.html', job_listings=None)
     
-
 if __name__ == "__main__":
     app.run(debug=True)
-    # keyword = 'python'  # Update with your desired keyword
-    # location = ''  # Update with your desired location (leave empty for all locations)
-
-    # get_jobs(keyword, location)
-    # scrape_job_listings(keyword, location)
-    # hello_world()
+    
