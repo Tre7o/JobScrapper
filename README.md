@@ -4,8 +4,8 @@ This application is a web scrapper built using python and flask, to return job l
 
 Ensure that the FLASK_APP environment variable is set correctly. This variable should contain the name of the Python file where your Flask application is defined.
 
-In your case, assuming your Flask application is in a file named jobscrapper.py, set the FLASK_APP environment variable:
-set FLASK_APP=app.py  # For Command Prompt
+In your case, assuming your Flask application is in a file named jobscrapper.py, to set the FLASK_APP environment variable use this:
+set FLASK_APP=jobscrapper.py  # For Command Prompt
 #### OR
 $env:FLASK_APP = "app.py"  For PowerShell
 
